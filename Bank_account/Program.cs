@@ -48,7 +48,7 @@ namespace Bank_account
                     Console.WriteLine();
 
                     char userChoice2 = char.Parse(Console.ReadLine());
-                    Console.WriteLine()
+                    Console.WriteLine();
                     
                     switch (userChoice2)
                     {
@@ -62,7 +62,31 @@ namespace Bank_account
                             break;
                     }
                     break;
+
                 case 3:
+                    Console.WriteLine("a. Checking Account");
+                    Console.WriteLine("b. Savings Account");
+                    Console.WriteLine();
+
+                    userChoice2 = char.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    
+                    switch (userChoice2)
+                    {
+                        case 'a':
+                            Console.WriteLine("How much would you like to deposit?");
+                            double numDeposited = double.Parse(Console.ReadLine());
+                            Console.WriteLine("Your new balance is $" + checking1.Deposit(numDeposited)+ ".");
+                            break;
+                        case 'b':
+                            Console.WriteLine("How much would you like to deposit?");
+                            numDeposited = double.Parse(Console.ReadLine());
+                            Console.WriteLine("Your new balance is $" + savings1.Deposit(numDeposited) + ".");
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
 
                 case 4:
 
