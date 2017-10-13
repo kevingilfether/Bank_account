@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank_account
 {
-    class Program
+    class Savings : Account
     {
-        static void Main(string[] args)
-        {
-            //https://www.youtube.com/watch?v=PBwAxmrE194
-            //
-        }
     }
 }
