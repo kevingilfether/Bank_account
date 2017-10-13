@@ -12,7 +12,7 @@ namespace Bank_account
 
         private string name;
         private string userName;
-        private int acctNum;
+        private int userNum;
 
         public string Name
         {
@@ -22,9 +22,9 @@ namespace Bank_account
         {
             get { return this.userName; }
         }
-        public int AcctNum
+        public int UserNum
         {
-            get { return this.acctNum; }
+            get { return this.userNum; }
         }
 
         public Client()
@@ -32,15 +32,15 @@ namespace Bank_account
 
         }
 
-        public Client(string name, string userName, int acctNum)
+        public Client(string name, string userName, int userNum)
         {
             this.name = name;
             this.userName = userName;
-            this.acctNum = acctNum;
+            this.userNum = userNum;
         }
         public void ViewClientInfo()
         {
-            Console.WriteLine(Name + " --- " + userName + " --- " + acctNum);
+            Console.WriteLine(Name + " --- " + userName + " --- " + userNum);
         }
 
     }

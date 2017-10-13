@@ -8,6 +8,6 @@ namespace Bank_account
 {
     class Checking: Account
     { 
-        //This is the field for 
+        
     }
 }
