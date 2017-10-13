@@ -8,6 +8,21 @@ namespace Bank_account
 {
     class Checking: Account
     { 
-        
+        public Checking()
+        {
+
+        }
+        public Checking(int acctNum, double balance)
+        {
+            this.acctNum = acctNum;
+            this.balance = balance;
+
+            this.acctType = "Checking Account";
+        }
+
+        public override void ViewBalance()
+        {
+            Console.WriteLine("The account balance for {0}: {1} is ${3}.", acctType, acctNum, Math.Round(balance, 2));
+        }
     }
 }

@@ -36,13 +36,13 @@ namespace Bank_account
         //Deposit and Withdrawal methods - virtual to facilitate overrides
         public virtual double Deposit(double numDeposited)
         {
-            double newBalance = balance + numDeposited;
-            return newBalance;
+            balance += numDeposited;
+            return balance;
         }
-        public virtual double Withdrawal(double numWithdrawn)
+        public virtual double Withdraw(double numWithdrawn)
         {
-            double newBalance = balance + numWithdrawn;
-            return newBalance;
+            balance -= numWithdrawn;
+            return balance;
         }
         public abstract void ViewBalance();
 
