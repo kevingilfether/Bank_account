@@ -41,7 +41,7 @@ namespace Bank_account
             else
             {
                 Console.WriteLine("You've tried to withdraw more than the maximum of $" + (balance - acctMin) + ".");
-                Console.WriteLine("Please try your withdrawal again, leaving at least $" + acctMin + "in your account.")
+                Console.WriteLine("Please try your withdrawal again, leaving at least $" + acctMin + "in your account.");
                 return balance;
             }
         }
