@@ -15,7 +15,6 @@ namespace Bank_account
             //This is the copy for when a user first starts their program
             Console.WriteLine("Welcome to United Banking Software!");
             Console.WriteLine();
-            Console.WriteLine("Please enter the number for your transaction type");
 
             //Makes Client and Accounts
             Random rand = new Random();
@@ -23,6 +22,8 @@ namespace Bank_account
             Checking checking1 = new Checking(rand.Next(1000, 10000), 5000);
             Savings savings1 = new Savings(rand.Next(1000, 10000), 500);
 
+
+            //This is the flag for the do-while loop that most of the program runs in
             string goAgain;
 
             Console.WriteLine("Please enter the number for your transaction type");
@@ -75,12 +76,16 @@ namespace Bank_account
                     {
                         case 'a':
                             Console.WriteLine("How much would you like to deposit?");
+                            Console.WriteLine();
                             double numDeposited = double.Parse(Console.ReadLine());
+                            Console.WriteLine();
                             Console.WriteLine("Your new balance is $" + checking1.Deposit(numDeposited)+ ".");
                             break;
                         case 'b':
                             Console.WriteLine("How much would you like to deposit?");
+                            Console.WriteLine();
                             numDeposited = double.Parse(Console.ReadLine());
+                            Console.WriteLine();
                             Console.WriteLine("Your new balance is $" + savings1.Deposit(numDeposited) + ".");
                             break;
                         default:
