@@ -94,6 +94,33 @@ namespace Bank_account
                     break;
 
                 case 4:
+                    Console.WriteLine("a. Checking Account");
+                    Console.WriteLine("b. Savings Account");
+                    Console.WriteLine();
+
+                    userChoice2 = char.Parse(Console.ReadLine());
+                    Console.WriteLine();
+
+                    switch (userChoice2)
+                    {
+                        case 'a':
+                            Console.WriteLine("How much would you like to withdraw?");
+                            Console.WriteLine();
+                            double numWithdrawn = double.Parse(Console.ReadLine());
+                            Console.WriteLine();
+                            Console.WriteLine("Your new balance is $" + checking1.Withdraw(numWithdrawn) + ".");
+                            break;
+                        case 'b':
+                            Console.WriteLine("How much would you like to withdraw?");
+                            Console.WriteLine();
+                            numWithdrawn = double.Parse(Console.ReadLine());
+                            Console.WriteLine();
+                            Console.WriteLine("Your new balance is $" + savings1.Withdraw(numWithdrawn) + ".");
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
 
                 case 5:
                     goAgain = "no";
@@ -117,6 +144,11 @@ namespace Bank_account
             }
             //}
             //while (goAgain == "yes" || goAgain == "y");
+
+
+            // ToDO!
+            //Fix the method for Savings Withdraw
+            //Do-While
         }
     }
 }

@@ -36,14 +36,16 @@ namespace Bank_account
         //This is the method to make sure that a withdrawal beyond the minimum isn't allowed!
         public override double Withdraw(double numWithdrawn)
         {
-            if (base.Withdraw(numWithdrawn) > acctMin)
-                return base.Withdraw(numWithdrawn);
-            else
+            double maxAllowedDraw = balance - acctMin;
+            if (numWithdrawn > maxAllowedDraw)
             {
-                Console.WriteLine("You've tried to withdraw more than the maximum of $" + (balance - acctMin) + ".");
-                Console.WriteLine("Please try your withdrawal again, leaving at least $" + acctMin + "in your account.");
+                Console.WriteLine("You've tried to withdraw below your minimum of " + acctMin + ".");
+                Console.WriteLine("Please try your withdrawal again, leaving at least $" + acctMin + " in your account.");
                 return balance;
             }
+            else
+                return base.Withdraw(numWithdrawn);
+
         }
 
 
