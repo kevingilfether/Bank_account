@@ -22,7 +22,7 @@ namespace Bank_account
 
         public override void ViewBalance()
         {
-            Console.WriteLine("The account balance for {0}: {1} is ${3}.", acctType, acctNum, Math.Round(balance, 2));
+            Console.WriteLine("The account balance for {0}: {1} is ${2}.", acctType, acctNum, Math.Round(balance, 2));
         }
     }
 }

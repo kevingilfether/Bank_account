@@ -31,22 +31,57 @@ namespace Bank_account
             Console.WriteLine("3. Deposit Funds");
             Console.WriteLine("4. Withdraw Funds");
             Console.WriteLine("5. Exit");
+            Console.WriteLine();
 
             int userChoice = int.Parse(Console.ReadLine());
+            Console.WriteLine();
 
             switch (userChoice)
             {
                 case 1:
                     client1.ViewClientInfo();
                     break;
-                case 2:
 
+                case 2:
+                    Console.WriteLine("a. Checking Account");
+                    Console.WriteLine("b. Savings Account");
+                    Console.WriteLine();
+
+                    char userChoice2 = char.Parse(Console.ReadLine());
+                    Console.WriteLine()
+                    
+                    switch (userChoice2)
+                    {
+                        case 'a':
+                            checking1.ViewBalance();
+                            break;
+                        case 'b':
+                            savings1.ViewBalance();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
                 case 3:
 
                 case 4:
 
                 case 5:
                     goAgain = "no";
+                    break;
+
+                default:
+                    Console.WriteLine("Please choose a valid number");
+                    Console.WriteLine("Please enter the number for your transaction type");
+                    Console.WriteLine("1. View Client Information");
+                    Console.WriteLine("2. View Account Balance");
+                    Console.WriteLine("3. Deposit Funds");
+                    Console.WriteLine("4. Withdraw Funds");
+                    Console.WriteLine("5. Exit");
+                    Console.WriteLine();
+
+                    userChoice = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
                     break;
 
 
