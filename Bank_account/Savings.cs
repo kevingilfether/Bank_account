@@ -39,8 +39,8 @@ namespace Bank_account
             double maxAllowedDraw = balance - acctMin;
             if (numWithdrawn > maxAllowedDraw)
             {
-                Console.WriteLine("You've tried to withdraw below your minimum of " + acctMin + ".");
                 Console.WriteLine("Please try your withdrawal again, leaving at least $" + acctMin + " in your account.");
+                Console.WriteLine("You may withdraw a maximum of $" + maxAllowedDraw + " without making a new deposit.");
                 return balance;
             }
             else
