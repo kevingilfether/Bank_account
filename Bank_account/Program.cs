@@ -81,14 +81,14 @@ namespace Bank_account
                                 Console.WriteLine();
                                 double numDeposited = double.Parse(Console.ReadLine());
                                 Console.WriteLine();
-                                Console.WriteLine("Your balance is $" + checking1.Deposit(numDeposited) + ".");
+                                checking1.ViewBalance();
                                 break;
                             case 'b':
                                 Console.WriteLine("How much would you like to deposit?");
                                 Console.WriteLine();
                                 numDeposited = double.Parse(Console.ReadLine());
                                 Console.WriteLine();
-                                Console.WriteLine("Your balance is $" + savings1.Deposit(numDeposited) + ".");
+                                savings1.ViewBalance();
                                 break;
                             default:
                                 break;
@@ -110,14 +110,14 @@ namespace Bank_account
                                 Console.WriteLine();
                                 double numWithdrawn = double.Parse(Console.ReadLine());
                                 Console.WriteLine();
-                                Console.WriteLine("Your balance is $" + checking1.Withdraw(numWithdrawn) + ".");
+                                checking1.ViewBalance();
                                 break;
                             case 'b':
                                 Console.WriteLine("How much would you like to withdraw?");
                                 Console.WriteLine();
                                 numWithdrawn = double.Parse(Console.ReadLine());
                                 Console.WriteLine();
-                                Console.WriteLine("Your balance is $" + savings1.Withdraw(numWithdrawn) + ".");
+                                savings1.ViewBalance();
                                 break;
                             default:
                                 break;
@@ -146,11 +146,9 @@ namespace Bank_account
                 }
             }
             while (goAgain);
+            
+            Console.WriteLine("Have a nice day!");
 
-
-            // ToDO!
-            //Fix the method for Savings Withdraw
-            //Do-While
         }
     }
 }
