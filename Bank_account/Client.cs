@@ -38,6 +38,8 @@ namespace Bank_account
             this.userName = userName;
             this.userNum = userNum;
         }
+        
+        //This is the method to print client information
         public void ViewClientInfo()
         {
             Console.WriteLine(Name + " --- " + userName + " --- " + userNum);

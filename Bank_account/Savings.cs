@@ -8,6 +8,8 @@ namespace Bank_account
 {
     class Savings : Account
     {
+        //This fiedl is the minimum below 
+        //which the user cannot draw.
         private double acctMin;
 
         public double AcctMin
@@ -47,7 +49,5 @@ namespace Bank_account
                 return base.Withdraw(numWithdrawn);
 
         }
-
-
     }
 }

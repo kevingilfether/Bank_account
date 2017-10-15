@@ -33,7 +33,7 @@ namespace Bank_account
 
         }
 
-        //Deposit and Withdrawal methods - virtual to facilitate overrides
+        //Deposit and Withdraw methods - virtual to facilitate overrides
         public virtual double Deposit(double numDeposited)
         {
             balance += numDeposited;
@@ -44,8 +44,7 @@ namespace Bank_account
             balance -= numWithdrawn;
             return balance;
         }
+        //Abstract ViewBalance method
         public abstract void ViewBalance();
-
-
     }
 }
