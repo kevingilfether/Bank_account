@@ -12,9 +12,9 @@ namespace Bank_account
         {
 
         }
-        public Checking(int acctNum, double balance)
+        public Checking(Client client, double balance)
         {
-            this.acctNum = acctNum;
+            this.acctNum = client.UserNum;
             this.balance = balance;
 
             this.acctType = "Checking Account";

@@ -14,12 +14,17 @@ namespace Bank_account
 
             //This is the copy for when a user first starts their program
             Console.WriteLine("Welcome to United Banking Software!");
+            Console.WriteLine();
 
             //Makes Client and Accounts
             Random rand = new Random();
-            Client client1 = new Client("Kurt", "krussell", rand.Next(10000, 100000));
-            Checking checking1 = new Checking(rand.Next(1000, 10000), 5000);
-            Savings savings1 = new Savings(rand.Next(1000, 10000), 500);
+            List<Client> clientList = new List<Client>();
+            List<Checking> checkingList = new List<Checking>();
+            List<Savings> savingsList = new List<Savings>();
+
+            clientList.Add(ClientMaker());
+            checkingList.Add(new Checking(clientList[0], 5000));
+            savingsList.Add(new Savings(clientList[0], 500));        
 
 
             //This is the flag for the do-while loop that most of the program runs in
@@ -27,28 +32,23 @@ namespace Bank_account
 
             do
             {
-                Console.WriteLine();
-                Console.WriteLine("Please enter the number for your transaction type");
-                Console.WriteLine("1. View Client Information");
-                Console.WriteLine("2. View Account Balance");
-                Console.WriteLine("3. Deposit Funds");
-                Console.WriteLine("4. Withdraw Funds");
-                Console.WriteLine("5. Exit");
-                Console.WriteLine();
+                //This prints the menu for the banking options
+                MenuPrinter();
 
                 int userChoice = int.Parse(Console.ReadLine());
                 Console.WriteLine();
 
                 switch (userChoice)
                 {
+                    //checks user info
                     case 1:
-                        client1.ViewClientInfo();
+                        clientList[0].ViewClientInfo();
                         break;
 
+                    //Views account balance
                     case 2:
-                        Console.WriteLine("a. Checking Account");
-                        Console.WriteLine("b. Savings Account");
-                        Console.WriteLine();
+                        //This prints the submenu for choosing between checkings and savings
+                        SubMenuPrinter();
 
                         char userChoice2 = char.Parse(Console.ReadLine());
                         Console.WriteLine();
@@ -56,20 +56,19 @@ namespace Bank_account
                         switch (userChoice2)
                         {
                             case 'a':
-                                checking1.ViewBalance();
+                                checkingList[0].ViewBalance();
                                 break;
                             case 'b':
-                                savings1.ViewBalance();
+                                savingsList[0].ViewBalance();
                                 break;
                             default:
                                 break;
                         }
                         break;
 
+                    //Deposits
                     case 3:
-                        Console.WriteLine("a. Checking Account");
-                        Console.WriteLine("b. Savings Account");
-                        Console.WriteLine();
+                        SubMenuPrinter();
 
                         userChoice2 = char.Parse(Console.ReadLine());
                         Console.WriteLine();
@@ -80,25 +79,26 @@ namespace Bank_account
                                 Console.WriteLine("How much would you like to deposit?");
                                 Console.WriteLine();
                                 double numDeposited = double.Parse(Console.ReadLine());
+                                checkingList[0].Deposit(numDeposited);
                                 Console.WriteLine();
-                                checking1.ViewBalance();
+                                checkingList[0].ViewBalance();
                                 break;
                             case 'b':
                                 Console.WriteLine("How much would you like to deposit?");
                                 Console.WriteLine();
                                 numDeposited = double.Parse(Console.ReadLine());
+                                savingsList[0].Deposit(numDeposited);
                                 Console.WriteLine();
-                                savings1.ViewBalance();
+                                savingsList[0].ViewBalance();
                                 break;
                             default:
                                 break;
                         }
                         break;
 
+                    //Withdrawals
                     case 4:
-                        Console.WriteLine("a. Checking Account");
-                        Console.WriteLine("b. Savings Account");
-                        Console.WriteLine();
+                        SubMenuPrinter();
 
                         userChoice2 = char.Parse(Console.ReadLine());
                         Console.WriteLine();
@@ -109,46 +109,70 @@ namespace Bank_account
                                 Console.WriteLine("How much would you like to withdraw?");
                                 Console.WriteLine();
                                 double numWithdrawn = double.Parse(Console.ReadLine());
+                                checkingList[0].Withdraw(numWithdrawn);
                                 Console.WriteLine();
-                                checking1.ViewBalance();
+                                checkingList[0].ViewBalance();
                                 break;
                             case 'b':
                                 Console.WriteLine("How much would you like to withdraw?");
                                 Console.WriteLine();
                                 numWithdrawn = double.Parse(Console.ReadLine());
+                                savingsList[0].Withdraw(numWithdrawn);
                                 Console.WriteLine();
-                                savings1.ViewBalance();
+                                savingsList[0].ViewBalance();
                                 break;
                             default:
                                 break;
                         }
                         break;
-
+                    
+                    //Exits
                     case 5:
                         goAgain = false;
                         break;
 
                     default:
-                        Console.WriteLine("Please choose a valid number");
-                        Console.WriteLine("Please enter the number for your transaction type");
-                        Console.WriteLine("1. View Client Information");
-                        Console.WriteLine("2. View Account Balance");
-                        Console.WriteLine("3. Deposit Funds");
-                        Console.WriteLine("4. Withdraw Funds");
-                        Console.WriteLine("5. Exit");
-                        Console.WriteLine();
+                        MenuPrinter();
 
                         userChoice = int.Parse(Console.ReadLine());
                         Console.WriteLine();
                         break;
-
-
                 }
             }
             while (goAgain);
             
             Console.WriteLine("Have a nice day!");
 
+        }
+        public static void MenuPrinter()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Please enter the number for your transaction type");
+            Console.WriteLine("1. View Client Information");
+            Console.WriteLine("2. View Account Balance");
+            Console.WriteLine("3. Deposit Funds");
+            Console.WriteLine("4. Withdraw Funds");
+            Console.WriteLine("5. Exit");
+            Console.WriteLine();
+        }
+        public static void SubMenuPrinter()
+        {
+            Console.WriteLine("a. Checking Account");
+            Console.WriteLine("b. Savings Account");
+            Console.WriteLine();
+        }
+        public static Client ClientMaker()
+        {
+            Console.WriteLine("What is your name?");
+            string name = Console.ReadLine();
+            Console.WriteLine("What is your unique user name?");
+            string userName = Console.ReadLine();
+            Console.WriteLine("What is your account number?");
+            int acctNum = int.Parse(Console.ReadLine());
+
+            Client newClient = new Client(name, userName, acctNum);
+
+            return newClient;
         }
     }
 }

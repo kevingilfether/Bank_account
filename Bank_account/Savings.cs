@@ -20,9 +20,9 @@ namespace Bank_account
 
         }
 
-        public Savings(int acctNum, double balance)
+        public Savings(Client client, double balance)
         {
-            this.acctNum = acctNum;
+            this.acctNum = client.UserNum;
             this.balance = balance;
 
             this.acctType = "Savings Account";
