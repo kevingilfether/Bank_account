@@ -8,7 +8,7 @@ namespace Bank_account
 {
     class Savings : Account
     {
-        //This fiedl is the minimum below 
+        //This field is the minimum below 
         //which the user cannot draw.
         private double acctMin;
 
